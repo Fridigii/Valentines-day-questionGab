@@ -1,0 +1,163 @@
+/* style.css - OPCIÓN 2: Burbujas Modernas */
+
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Color base */
+    background-color: #fff0f3;
+    position: relative;
+    /* Necesario para las burbujas */
+}
+
+/* --- BURBUJAS FLOTANTES --- */
+/* Burbuja 1 (Arriba izquierda) */
+body::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(45deg, #ffafbd, #ffc3a0);
+    /* Tonos melocotón/rosa */
+    border-radius: 50%;
+    filter: blur(80px);
+    /* Mucho desenfoque para que sea suave */
+    opacity: 0.6;
+    animation: float1 15s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+/* Burbuja 2 (Abajo derecha) */
+body::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    /* Tonos rosa más fuerte */
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.5;
+    animation: float2 18s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+/* Animaciones para las burbujas */
+@keyframes float1 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(50px, 100px) scale(1.1);
+    }
+}
+
+@keyframes float2 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-70px, -50px) scale(1.2);
+    }
+}
+
+
+#container {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    /* Asegura que la tarjeta esté SOBRE las burbujas */
+}
+
+/* ESTILO DE TARJETA */
+.card {
+    background: rgba(255, 255, 255, 0.85);
+    /* Más transparente para ver las burbujas detrás */
+    backdrop-filter: blur(10px);
+    /* Efecto de vidrio esmerilado moderno */
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Borde sutil */
+}
+
+/* EL RESTO SIGUE IGUAL... */
+#image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#image-container img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+}
+
+#question {
+    font-family: 'Sacramento', cursive;
+    font-size: 50px;
+    color: #d63384;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#options {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 16px 32px;
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    background: linear-gradient(45deg, #ff6b81, #ff4757);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px -10px rgba(255, 71, 87, 0.5);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+button:hover {
+    background: linear-gradient(45deg, #ff4757, #d63384);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px -10px rgba(255, 71, 87, 0.7);
+}
+
+#si-button {
+    transition: all 0.3s ease;
+}
