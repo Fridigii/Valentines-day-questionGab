@@ -1,4 +1,4 @@
-/* style.css - OPCIÓN 2: Burbujas Modernas */
+/* style.css FINAL - Sin Vaca (Solo Burbujas y Video) */
 
 body {
     font-family: 'Nunito', sans-serif;
@@ -8,14 +8,16 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* Color base */
+
+    /* --- FONDO SOLO COLOR --- */
     background-color: #fff0f3;
+    /* Color rosita base */
     position: relative;
     /* Necesario para las burbujas */
 }
 
-/* --- BURBUJAS FLOTANTES --- */
-/* Burbuja 1 (Arriba izquierda) */
+/* --- BURBUJAS FLOTANTES (Se quedan) --- */
+/* Burbuja 1 */
 body::before {
     content: '';
     position: absolute;
@@ -24,16 +26,14 @@ body::before {
     width: 600px;
     height: 600px;
     background: linear-gradient(45deg, #ffafbd, #ffc3a0);
-    /* Tonos melocotón/rosa */
     border-radius: 50%;
     filter: blur(80px);
-    /* Mucho desenfoque para que sea suave */
     opacity: 0.6;
     animation: float1 15s ease-in-out infinite alternate;
     z-index: 1;
 }
 
-/* Burbuja 2 (Abajo derecha) */
+/* Burbuja 2 */
 body::after {
     content: '';
     position: absolute;
@@ -42,7 +42,6 @@ body::after {
     width: 500px;
     height: 500px;
     background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-    /* Tonos rosa más fuerte */
     border-radius: 50%;
     filter: blur(90px);
     opacity: 0.5;
@@ -50,7 +49,6 @@ body::after {
     z-index: 1;
 }
 
-/* Animaciones para las burbujas */
 @keyframes float1 {
     0% {
         transform: translate(0, 0) scale(1);
@@ -71,7 +69,6 @@ body::after {
     }
 }
 
-
 #container {
     text-align: center;
     width: 100%;
@@ -81,15 +78,12 @@ body::after {
     justify-content: center;
     position: relative;
     z-index: 10;
-    /* Asegura que la tarjeta esté SOBRE las burbujas */
 }
 
 /* ESTILO DE TARJETA */
 .card {
     background: rgba(255, 255, 255, 0.85);
-    /* Más transparente para ver las burbujas detrás */
     backdrop-filter: blur(10px);
-    /* Efecto de vidrio esmerilado moderno */
     padding: 40px;
     border-radius: 24px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -100,10 +94,8 @@ body::after {
     align-items: center;
     transition: transform 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.5);
-    /* Borde sutil */
 }
 
-/* EL RESTO SIGUE IGUAL... */
 #image-container {
     width: 100%;
     display: flex;
@@ -111,7 +103,9 @@ body::after {
     margin-bottom: 20px;
 }
 
-#image-container img {
+/* SOPORTE PARA IMAGEN Y VIDEO */
+#image-container img,
+#image-container video {
     width: 100%;
     max-width: 480px;
     height: auto;
